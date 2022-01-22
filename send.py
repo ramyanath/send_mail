@@ -1,18 +1,21 @@
 #!C:\Users\Public\python\python.exe
-print("Content-type:text/html\r\n\r\n")
+
 import cgi
-import mysql.connector
+# import mysql.connector
 import smtplib
-data=cgi.FieldStorage()
-db=mysql.connector.connect(host="127.0.0.1",user="root",password="",db="test")
-cursor=db.cursor()
+import pandas as pd
+# data=cgi.FieldStorage()
+# db=mysql.connector.connect(host="127.0.0.1",user="root",password="",db="test")
+# cursor=db.cursor()
 
-sql="select email from table1"
-cursor.execute(sql)
+# sql="select email from table1"
+# cursor.execute(sql)
 
-result=cursor.fetchall()
-db.commit()
+# result=cursor.fetchall()
+# db.commit()
 
+e = pd.read_excel("Email.xlsx")
+result = e['Emails'].values
 SenderAddress = "ramyanathsgs@gmail.com"
 password = "password"
 
